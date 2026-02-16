@@ -1,7 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
 import os
 
 app = FastAPI(title="CMC Portfolio - Martina Caputo")
@@ -15,58 +15,42 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve static files from the site directory
+# Site directory
 SITE_DIR = "/app/site"
 
-# Mount static directories
-app.mount("/assets", StaticFiles(directory=f"{SITE_DIR}/assets"), name="assets")
-app.mount("/images", StaticFiles(directory=f"{SITE_DIR}/images"), name="images")
-app.mount("/css", StaticFiles(directory=f"{SITE_DIR}/css"), name="css")
-app.mount("/js", StaticFiles(directory=f"{SITE_DIR}/js"), name="js")
-
-@app.get("/")
-async def serve_index():
-    return FileResponse(f"{SITE_DIR}/index.html")
-
-@app.get("/index.html")
-async def serve_index_html():
-    return FileResponse(f"{SITE_DIR}/index.html")
-
-@app.get("/chi-sono.html")
-async def serve_chi_sono():
-    return FileResponse(f"{SITE_DIR}/chi-sono.html")
-
-@app.get("/chi-sono")
-async def serve_chi_sono_clean():
-    return FileResponse(f"{SITE_DIR}/chi-sono.html")
-
-@app.get("/progetti.html")
-async def serve_progetti():
-    return FileResponse(f"{SITE_DIR}/progetti.html")
-
-@app.get("/progetti")
-async def serve_progetti_clean():
-    return FileResponse(f"{SITE_DIR}/progetti.html")
-
-@app.get("/cv.html")
-async def serve_cv():
-    return FileResponse(f"{SITE_DIR}/cv.html")
-
-@app.get("/cv")
-async def serve_cv_clean():
-    return FileResponse(f"{SITE_DIR}/cv.html")
-
-@app.get("/contatti.html")
-async def serve_contatti():
-    return FileResponse(f"{SITE_DIR}/contatti.html")
-
-@app.get("/contatti")
-async def serve_contatti_clean():
-    return FileResponse(f"{SITE_DIR}/contatti.html")
-
+# Health check
 @app.get("/api/health")
 async def health_check():
     return {"status": "ok", "message": "CMC Portfolio is running"}
+
+# Serve static files under /api/site
+app.mount("/api/site/assets", StaticFiles(directory=f"{SITE_DIR}/assets"), name="assets")
+app.mount("/api/site/images", StaticFiles(directory=f"{SITE_DIR}/images"), name="images")
+app.mount("/api/site/css", StaticFiles(directory=f"{SITE_DIR}/css"), name="css")
+app.mount("/api/site/js", StaticFiles(directory=f"{SITE_DIR}/js"), name="js")
+
+# Serve HTML pages
+@app.get("/api/site/index.html")
+@app.get("/api/site/")
+@app.get("/api/site")
+async def serve_index():
+    return FileResponse(f"{SITE_DIR}/index.html", media_type="text/html")
+
+@app.get("/api/site/chi-sono.html")
+async def serve_chi_sono():
+    return FileResponse(f"{SITE_DIR}/chi-sono.html", media_type="text/html")
+
+@app.get("/api/site/progetti.html")
+async def serve_progetti():
+    return FileResponse(f"{SITE_DIR}/progetti.html", media_type="text/html")
+
+@app.get("/api/site/cv.html")
+async def serve_cv():
+    return FileResponse(f"{SITE_DIR}/cv.html", media_type="text/html")
+
+@app.get("/api/site/contatti.html")
+async def serve_contatti():
+    return FileResponse(f"{SITE_DIR}/contatti.html", media_type="text/html")
 
 if __name__ == "__main__":
     import uvicorn
