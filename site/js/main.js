@@ -6,6 +6,47 @@
 document.addEventListener('DOMContentLoaded', function() {
     
     // ========================================
+    // Cookie Banner
+    // ========================================
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAccept = document.getElementById('cookieAccept');
+    const cookieReject = document.getElementById('cookieReject');
+    
+    // Check if user already made a choice
+    const cookieChoice = localStorage.getItem('cookieConsent');
+    
+    if (!cookieChoice && cookieBanner) {
+        // Show banner after a short delay
+        setTimeout(() => {
+            cookieBanner.classList.add('show');
+        }, 1500);
+    }
+    
+    if (cookieAccept) {
+        cookieAccept.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            hideCookieBanner();
+        });
+    }
+    
+    if (cookieReject) {
+        cookieReject.addEventListener('click', function() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            hideCookieBanner();
+        });
+    }
+    
+    function hideCookieBanner() {
+        if (cookieBanner) {
+            cookieBanner.classList.remove('show');
+            cookieBanner.classList.add('hide');
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 400);
+        }
+    }
+    
+    // ========================================
     // Mobile Menu Toggle
     // ========================================
     const hamburgerBtn = document.getElementById('hamburgerBtn');
