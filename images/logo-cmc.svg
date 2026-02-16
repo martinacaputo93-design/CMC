@@ -1,0 +1,18 @@
+<svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="30" cy="30" r="28" fill="none" stroke="#cda741" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Decorative elements -->
+  <rect x="8" y="20" width="8" height="20" fill="#00ff00" rx="2" opacity="0.8"/>
+  <rect x="48" y="20" width="8" height="20" fill="#00ff00" rx="2" opacity="0.8"/>
+  
+  <!-- Main text CMC -->
+  <text x="100" y="42" font-family="Cinzel, serif" font-size="32" font-weight="700" fill="#cda741" letter-spacing="4">
+    CMC
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="100" y="55" font-family="Montserrat, sans-serif" font-size="10" fill="#cda741" opacity="0.7" letter-spacing="2">
+    CREATING MODERN COMPOSITIONS
+  </text>
+</svg>
