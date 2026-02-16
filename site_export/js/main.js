@@ -1,22 +1,18 @@
 /**
- * CMC Portfolio - Enhanced JavaScript
- * Perfezionato per esame
+ * CMC Portfolio - Martina Caputo
+ * JavaScript per interattività e animazioni
  */
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========================================
-    // Cookie Banner
-    // ========================================
+    // Cookie Banner GDPR
     const cookieBanner = document.getElementById('cookieBanner');
     const cookieAccept = document.getElementById('cookieAccept');
     const cookieReject = document.getElementById('cookieReject');
     
-    // Check if user already made a choice
     const cookieChoice = localStorage.getItem('cookieConsent');
     
     if (!cookieChoice && cookieBanner) {
-        // Show banner after a short delay
         setTimeout(() => {
             cookieBanner.classList.add('show');
         }, 1500);
@@ -46,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // ========================================
-    // Mobile Menu Toggle
-    // ========================================
+    // Menu Mobile
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuOverlay = document.getElementById('menuOverlay');
