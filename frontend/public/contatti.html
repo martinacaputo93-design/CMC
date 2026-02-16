@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html class="dark" lang="it">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Contattami - Martina Caputo, UX/UI Designer.">
+    <meta name="author" content="Martina Caputo">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Contatti | Martina Caputo - UX/UI Designer">
+    <meta property="og:description" content="Contattami per collaborazioni e progetti di design.">
+    <meta property="og:image" content="images/logo-cmc.svg">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/logo-cmc.svg">
+    
+    <title>Contatti | Martina Caputo - UX/UI Designer</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#cda741",
+                        "background-dark": "#0F0F0F", 
+                        "card-dark": "#161616",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "title": ["Cinzel", "serif"],
+                        "body": ["Montserrat", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+    
+    <style>
+        /* MOBILE MENU */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 280px;
+            height: 100vh;
+            background: #0F0F0F;
+            border-left: 1px solid rgba(205, 167, 65, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 999;
+            padding: 80px 30px 30px;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu a {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: #cda741;
+            text-decoration: none;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(205, 167, 65, 0.1);
+            transition: color 0.3s ease;
+        }
+        
+        .mobile-menu a:hover {
+            color: white;
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            display: none;
+        }
+        
+        .menu-overlay.active {
+            display: block;
+        }
+        
+        /* HAMBURGER */
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+            background: none;
+            border: none;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background-color: #cda741;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        /* Form styling */
+        .form-input {
+            background-color: #161616;
+            border: 1px solid rgba(205, 167, 65, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #cda741;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(205, 167, 65, 0.1);
+        }
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        /* Force gold color on Bootstrap Icons */
+        .bi { color: #cda741 !important; }
+        .text-primary { color: #cda741 !important; }
+        /* Force gold color on hamburger */
+        .hamburger span { background-color: #cda741 !important; }
+        .bg-primary { background-color: #cda741 !important; }
+    </style>
+</head>
+<body class="bg-background-dark min-h-screen flex flex-col font-display overflow-x-hidden selection:bg-primary selection:text-background-dark">
+    
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 w-full z-50 bg-background-dark/95 backdrop-blur-sm">
+        <div class="flex items-center justify-between p-4 pb-2">
+            <a href="index.html">
+                <img alt="CMC Logo" class="h-10 w-auto object-contain" src="images/logo-cmc.svg"/>
+            </a>
+            <button class="hamburger flex flex-col items-center justify-center gap-1.5 size-12 rounded-full text-primary hover:bg-primary/10 transition-colors" id="hamburgerBtn">
+                <span class="block w-6 h-0.5 bg-primary"></span>
+                <span class="block w-6 h-0.5 bg-primary"></span>
+                <span class="block w-6 h-0.5 bg-primary"></span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- MOBILE MENU -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <a href="index.html#skills">Competenze</a>
+        <a href="chi-sono.html">Chi Sono</a>
+        <a href="progetti.html">Progetti</a>
+        <a href="cv.html">Curriculum</a>
+        <a href="contatti.html">Contatti</a>
+    </nav>
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Main Content - PADDING TOP AUMENTATO -->
+    <main class="flex-grow flex flex-col items-center w-full max-w-2xl mx-auto px-4 pb-12 pt-28">
+        
+        <!-- Page Title -->
+        <div class="w-full text-center mb-8">
+            <h1 class="font-title text-3xl text-primary font-bold mb-4">Contattami</h1>
+            <p class="font-body text-white/70 text-base">Hai un progetto in mente? Parliamone!</p>
+            <div class="w-16 h-0.5 bg-primary/50 mx-auto mt-4"></div>
+        </div>
+        
+        <!-- Contact Info -->
+        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            <div class="bg-card-dark rounded-xl border border-primary/20 p-6 flex items-center gap-4">
+                <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <i class="bi bi-envelope text-primary text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-title text-primary font-bold text-sm">Email</h3>
+                    <p class="font-body text-white/70 text-sm">martina.caputo@email.com</p>
+                </div>
+            </div>
+            
+            <a href="https://www.linkedin.com/in/martina-caputo-44a073233" target="_blank" class="bg-card-dark rounded-xl border border-primary/20 p-6 flex items-center gap-4 hover:border-primary/50 transition-colors">
+                <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <i class="bi bi-linkedin text-primary text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-title text-primary font-bold text-sm">LinkedIn</h3>
+                    <p class="font-body text-white/70 text-sm">Martina Caputo</p>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="w-full bg-card-dark rounded-2xl border border-primary/20 p-8">
+            <h2 class="font-title text-xl text-primary font-bold mb-6 text-center">Inviami un messaggio</h2>
+            
+            <form action="#" method="POST" class="space-y-6" id="contactForm">
+                <!-- Nome -->
+                <div>
+                    <label for="nome" class="block font-body text-white/70 text-sm mb-2">Nome *</label>
+                    <input 
+                        type="text" 
+                        id="nome" 
+                        name="nome" 
+                        required 
+                        class="form-input w-full px-4 py-3 rounded-lg font-body"
+                        placeholder="Il tuo nome"
+                    >
+                </div>
+                
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block font-body text-white/70 text-sm mb-2">Email *</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        class="form-input w-full px-4 py-3 rounded-lg font-body"
+                        placeholder="La tua email"
+                    >
+                </div>
+                
+                <!-- Oggetto -->
+                <div>
+                    <label for="oggetto" class="block font-body text-white/70 text-sm mb-2">Oggetto *</label>
+                    <select 
+                        id="oggetto" 
+                        name="oggetto" 
+                        required 
+                        class="form-input w-full px-4 py-3 rounded-lg font-body"
+                    >
+                        <option value="">Seleziona un argomento</option>
+                        <option value="collaborazione">Proposta di collaborazione</option>
+                        <option value="progetto">Nuovo progetto</option>
+                        <option value="info">Richiesta informazioni</option>
+                        <option value="altro">Altro</option>
+                    </select>
+                </div>
+                
+                <!-- Messaggio -->
+                <div>
+                    <label for="messaggio" class="block font-body text-white/70 text-sm mb-2">Messaggio *</label>
+                    <textarea 
+                        id="messaggio" 
+                        name="messaggio" 
+                        required 
+                        rows="5"
+                        class="form-input w-full px-4 py-3 rounded-lg font-body resize-none"
+                        placeholder="Scrivi il tuo messaggio..."
+                    ></textarea>
+                </div>
+                
+                <!-- Privacy -->
+                <div class="flex items-start gap-3">
+                    <input 
+                        type="checkbox" 
+                        id="privacy" 
+                        name="privacy" 
+                        required 
+                        class="mt-1 size-4 rounded border-primary/30 bg-card-dark text-primary focus:ring-primary"
+                    >
+                    <label for="privacy" class="font-body text-white/50 text-xs">
+                        Acconsento al trattamento dei miei dati personali ai sensi del GDPR per essere ricontattato. *
+                    </label>
+                </div>
+                
+                <!-- Submit -->
+                <button 
+                    type="submit" 
+                    class="group relative w-full h-14 flex items-center justify-center gap-3 bg-primary rounded-lg text-background-dark font-body font-bold uppercase tracking-wider text-sm transition-transform active:scale-[0.98] hover:bg-primary/90"
+                >
+                    <span class="material-symbols-outlined">send</span>
+                    <span>Invia Messaggio</span>
+                </button>
+            </form>
+            
+            <!-- Success Message (hidden by default) -->
+            <div id="successMessage" class="hidden text-center py-8">
+                <div class="size-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                    <i class="bi bi-check-lg text-primary text-3xl"></i>
+                </div>
+                <h3 class="font-title text-primary font-bold text-xl mb-2">Messaggio Inviato!</h3>
+                <p class="font-body text-white/70">Grazie per avermi contattato. Ti risponderò il prima possibile.</p>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer COMPLETO -->
+    <footer class="w-full bg-[#050505] border-t border-primary/10 mt-12 py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Navigazione -->
+                <div class="text-center md:text-left">
+                    <h5 class="font-title text-primary text-sm font-bold mb-4 uppercase tracking-wider">Navigazione</h5>
+                    <nav class="flex flex-col gap-2">
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="index.html">Home</a>
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="chi-sono.html">Chi Sono</a>
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="progetti.html">Progetti</a>
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="cv.html">Curriculum</a>
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="contatti.html">Contatti</a>
+                    </nav>
+                </div>
+                
+                <!-- Legale -->
+                <div class="text-center md:text-left">
+                    <h5 class="font-title text-primary text-sm font-bold mb-4 uppercase tracking-wider">Legale</h5>
+                    <nav class="flex flex-col gap-2">
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="#">Cookie Policy</a>
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="#">Termini e Condizioni</a>
+                        <a class="font-body text-sm text-white/60 hover:text-primary transition-colors" href="#">GDPR</a>
+                    </nav>
+                </div>
+                
+                <!-- Contatti -->
+                <div class="text-center md:text-left">
+                    <h5 class="font-title text-primary text-sm font-bold mb-4 uppercase tracking-wider">Contatti</h5>
+                    <p class="font-body text-sm text-white/60 mb-2">martina.caputo@email.com</p>
+                    <p class="font-body text-sm text-white/60 mb-4">Italia</p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a aria-label="LinkedIn" class="size-10 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background-dark transition-all duration-300" href="https://www.linkedin.com/in/martina-caputo-44a073233" target="_blank">
+                            <i class="bi bi-linkedin text-lg"></i>
+                        </a>
+                        <a aria-label="GitHub" class="size-10 rounded-full border border-primary/30 flex items-center justify-center text-primary hover:bg-primary hover:text-background-dark transition-all duration-300" href="https://github.com/martinacaputo93-design/CMC" target="_blank">
+                            <i class="bi bi-github text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Divider -->
+            <div class="w-full h-px bg-primary/10 mb-6"></div>
+            
+            <!-- Bottom Footer -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="font-body text-xs text-white/40">© 2024 Martina Caputo - CMC. Tutti i diritti riservati.</p>
+                <div class="flex gap-4">
+                    <a class="font-body text-xs text-white/40 hover:text-primary transition-colors" href="#">Privacy</a>
+                    <a class="font-body text-xs text-white/40 hover:text-primary transition-colors" href="#">Cookie</a>
+                    <a class="font-body text-xs text-white/40 hover:text-primary transition-colors" href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        });
+        
+        menuOverlay.addEventListener('click', function() {
+            hamburgerBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
