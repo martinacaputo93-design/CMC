@@ -10,691 +10,36 @@
     <!-- Open Graph Tags -->
     <meta property="og:title" content="CMC | Martina Caputo - Creating Modern Compositions">
     <meta property="og:description" content="Designer creativa con background in tipografia, specializzata in UX/UI Design.">
-    <meta property="og:image" content="images/logo-cmc-transparent.png">
+    <meta property="og:image" content="images/logo-cmc.svg">
     <meta property="og:url" content="https://martinacaputo.github.io">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/logo-cmc-transparent.png">
-    <link rel="apple-touch-icon" href="images/logo-cmc-transparent.png">
+    <link rel="icon" type="image/svg+xml" href="images/logo-cmc.svg">
+    <link rel="apple-touch-icon" href="images/logo-cmc.svg">
     
     <title>CMC | Martina Caputo - Creating Modern Compositions</title>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <!-- Google Fonts - Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
-    <style>
-        :root {
-            --color-primary: #cda741;
-            --color-bg-dark: #0F0F0F;
-            --color-card-dark: #161616;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--color-bg-dark);
-            color: white;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-        
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .header-logo img {
-            height: 40px;
-            width: auto;
-        }
-        
-        /* HAMBURGER */
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 10px;
-            background: none;
-            border: none;
-        }
-        
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background-color: var(--color-primary);
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        
-        /* MOBILE MENU */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 280px;
-            height: 100vh;
-            background: var(--color-bg-dark);
-            border-left: 1px solid rgba(205, 167, 65, 0.2);
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            z-index: 999;
-            padding: 80px 30px 30px;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        .mobile-menu a {
-            display: block;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: var(--color-primary);
-            text-decoration: none;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(205, 167, 65, 0.1);
-            transition: color 0.3s ease;
-        }
-        
-        .mobile-menu a:hover {
-            color: white;
-        }
-        
-        .menu-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-            display: none;
-        }
-        
-        .menu-overlay.active {
-            display: block;
-        }
-        
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 120px 20px 60px;
-            text-align: center;
-        }
-        
-        /* LOGO ANIMATO */
-        .logo-container {
-            width: 600px;
-            height: auto;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        @media (max-width: 768px) {
-            .logo-container {
-                width: 400px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo-container {
-                width: 300px;
-            }
-        }
-        
-        .logo-container img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            animation: logoFloat 4s ease-in-out infinite, logoFadeIn 1.5s ease-out forwards, logoGlow 2s ease-in-out infinite alternate;
-            filter: drop-shadow(0 0 30px rgba(205, 167, 65, 0.6));
-        }
-        
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes logoFadeIn {
-            0% { opacity: 0; transform: scale(0.8); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes logoGlow {
-            0% { filter: drop-shadow(0 0 20px rgba(205, 167, 65, 0.4)); }
-            100% { filter: drop-shadow(0 0 50px rgba(205, 167, 65, 0.8)); }
-        }
-        
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 2.5rem;
-            color: var(--color-primary);
-            margin-bottom: 40px;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(205, 167, 65, 0.3);
-        }
-        
-        /* CTA BUTTONS - ALLINEATI */
-        .cta-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-            max-width: 450px;
-            margin-bottom: 20px;
-        }
-        
-        .cta-row {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-        
-        .cta-row .btn {
-            flex: 1;
-            min-width: 180px;
-            max-width: 200px;
-        }
-        
-        .btn-primary-custom {
-            background-color: var(--color-primary);
-            color: var(--color-bg-dark);
-            border: none;
-            padding: 15px 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary-custom:hover {
-            background-color: #b8932f;
-            color: var(--color-bg-dark);
-            transform: translateY(-2px);
-        }
-        
-        .btn-outline-custom {
-            background-color: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-            padding: 15px 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 8px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline-custom:hover {
-            background-color: var(--color-primary);
-            color: var(--color-bg-dark);
-            transform: translateY(-2px);
-        }
-        
-        /* SOCIAL LINKS */
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-        
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border: 2px solid var(--color-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background-color: var(--color-primary);
-            color: var(--color-bg-dark);
-        }
-        
-        .social-link i {
-            font-size: 1.3rem;
-        }
-        
-        /* SECTIONS */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            color: var(--color-primary);
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        
-        .section-divider {
-            width: 60px;
-            height: 3px;
-            background-color: var(--color-primary);
-            margin: 0 auto 40px;
-        }
-        
-        /* CHI SONO */
-        .about-text {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .btn-scopri {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--color-primary);
-            padding: 12px 25px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-scopri:hover {
-            background-color: var(--color-primary);
-            color: var(--color-bg-dark);
-        }
-        
-        /* COMPETENZE CAROSELLO */
-        .skills-carousel {
-            overflow: hidden;
-            position: relative;
-            padding: 20px 0;
-        }
-        
-        .skills-track {
-            display: flex;
-            gap: 30px;
-            animation: scrollSkills 20s linear infinite;
-        }
-        
-        @keyframes scrollSkills {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        
-        .skill-item {
-            flex-shrink: 0;
-            width: 120px;
-            height: 120px;
-            background: var(--color-card-dark);
-            border: 1px solid rgba(205, 167, 65, 0.3);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-item:hover {
-            border-color: var(--color-primary);
-            transform: translateY(-5px);
-        }
-        
-        .skill-item i {
-            font-size: 2rem;
-            color: var(--color-primary);
-        }
-        
-        .skill-item span {
-            font-size: 0.8rem;
-            color: var(--color-primary);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        /* PROGETTI - GRIGLIA STATICA ORIZZONTALE (FIT) */
-        .projects-grid {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 15px;
-            padding: 20px 0;
-            justify-content: center;
-            overflow-x: hidden;
-        }
-        
-        .project-card {
-            flex: 1;
-            min-width: 0;
-            background: var(--color-card-dark);
-            border: 1px solid rgba(205, 167, 65, 0.2);
-            border-radius: 12px;
-            padding: 12px;
-            min-height: 110px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-card:hover {
-            border-color: var(--color-primary);
-            transform: translateY(-3px);
-            background: rgba(205, 167, 65, 0.05);
-        }
-        
-        .project-card h3 {
-            font-size: 1rem;
-            margin: 5px 0;
-            color: var(--color-primary);
-        }
-        
-        .project-card p {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            line-height: 1.2;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        
-        .project-card .category {
-            font-size: 0.65rem;
-            margin-bottom: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .projects-grid {
-                flex-wrap: wrap;
-            }
-            .project-card {
-                flex: 0 0 calc(50% - 10px);
-                min-height: 140px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .project-card {
-                flex: 0 0 100%;
-            }
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top right, rgba(205, 167, 65, 0.1), transparent);
-        }
-        
-        .project-card:hover {
-            border-color: var(--color-primary);
-            transform: translateY(-5px);
-        }
-        
-        .project-card .category {
-            font-size: 0.75rem;
-            color: var(--color-primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-        }
-        
-        .project-card h3 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            color: white;
-            margin-bottom: 10px;
-        }
-        
-        .project-card p {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.5;
-        }
-        
-        /* FAQ */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: var(--color-card-dark);
-            border: 1px solid rgba(205, 167, 65, 0.2);
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 20px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .faq-question:hover {
-            background: rgba(205, 167, 65, 0.05);
-        }
-        
-        .faq-question h4 {
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            color: var(--color-primary);
-            margin: 0;
-        }
-        
-        .faq-question i {
-            color: var(--color-primary);
-            transition: transform 0.3s ease;
-        }
-        
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-        }
-        
-        .faq-answer p {
-            padding: 0 25px 20px;
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.7;
-        }
-        
-        /* FOOTER */
-        footer {
-            background: #050505;
-            border-top: 1px solid rgba(205, 167, 65, 0.1);
-            padding: 60px 20px 30px;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-        
-        @media (max-width: 768px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-        
-        .footer-section h5 {
-            font-family: 'Cinzel', serif;
-            color: var(--color-primary);
-            margin-bottom: 20px;
-            font-size: 1rem;
-        }
-        
-        .footer-section a {
-            display: block;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-section a:hover {
-            color: var(--color-primary);
-        }
-        
-        .footer-section p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            line-height: 1.7;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        @media (max-width: 768px) {
-            .footer-social {
-                justify-content: center;
-            }
-        }
-        
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(205, 167, 65, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-primary);
-            transition: all 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            background: var(--color-primary);
-            color: var(--color-bg-dark);
-        }
-        
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(205, 167, 65, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        @media (max-width: 768px) {
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-        
-        .footer-bottom p {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.8rem;
-        }
-        
-        .footer-bottom a {
-            color: rgba(255, 255, 255, 0.4);
-            text-decoration: none;
-            font-size: 0.8rem;
-            margin-left: 20px;
-        }
-        
-        .footer-bottom a:hover {
-            color: var(--color-primary);
-        }
-    </style>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
     <!-- HEADER -->
     <header>
-        <a href="index.html" class="header-logo">
-            <img src="images/logo-cmc.svg" alt="CMC Logo">
+        <a href="index.html" class="header-logo" aria-label="CMC Home">
+            <img src="images/logo-cmc.svg" alt="CMC Logo" width="120" height="40">
         </a>
-        <button class="hamburger" id="hamburgerBtn">
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -702,8 +47,8 @@
     </header>
     
     <!-- MOBILE MENU -->
-    <nav class="mobile-menu" id="mobileMenu">
-        <a href="index.html#skills">Competenze</a>
+    <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu principale">
+        <a href="index.html" class="active">Home</a>
         <a href="chi-sono.html">Chi Sono</a>
         <a href="progetti.html">Progetti</a>
         <a href="cv.html">Curriculum</a>
@@ -713,26 +58,26 @@
     
     <!-- HERO -->
     <section class="hero">
-        <div class="logo-container">
-            <img src="images/logo-cmc.svg" alt="CMC - Creating Modern Compositions">
+        <div class="logo-container" data-reveal="scale">
+            <img src="images/logo-cmc.svg" alt="CMC - Creating Modern Compositions" width="600" height="200">
         </div>
-        <h1>Martina Caputo</h1>
+        <h1 data-reveal>Martina Caputo</h1>
         
-        <!-- CTA ALLINEATI -->
+        <!-- CTA BUTTONS -->
         <div class="cta-container">
             <div class="cta-row">
-                <a href="assets/cv.pdf" download class="btn btn-primary-custom">
+                <a href="assets/cv.pdf" download class="btn btn-primary-custom ripple" data-testid="download-cv-btn">
                     <i class="bi bi-download"></i> Download CV
                 </a>
-                <a href="contatti.html" class="btn btn-outline-custom">
+                <a href="contatti.html" class="btn btn-outline-custom ripple" data-testid="contact-btn">
                     <i class="bi bi-envelope"></i> Contattami
                 </a>
             </div>
             <div class="cta-row">
-                <a href="https://www.linkedin.com/in/martina-caputo-44a073233" target="_blank" class="btn btn-outline-custom">
+                <a href="https://www.linkedin.com/in/martina-caputo-44a073233" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom ripple" data-testid="linkedin-btn">
                     <i class="bi bi-linkedin"></i> LinkedIn
                 </a>
-                <a href="#" class="btn btn-outline-custom">
+                <a href="https://github.com/martinacaputo93-design/CMC" target="_blank" rel="noopener noreferrer" class="btn btn-outline-custom ripple" data-testid="github-btn">
                     <i class="bi bi-github"></i> GitHub
                 </a>
             </div>
@@ -740,7 +85,7 @@
     </section>
     
     <!-- CHI SONO -->
-    <section id="about">
+    <section id="about" class="reveal">
         <h2 class="section-title">Chi Sono</h2>
         <div class="section-divider"></div>
         <p class="about-text">
@@ -749,14 +94,14 @@
             creando interfacce dal design pulito, moderno e d'impatto.
         </p>
         <div style="text-align: center;">
-            <a href="chi-sono.html" class="btn-scopri">
+            <a href="chi-sono.html" class="btn-scopri" data-testid="about-link">
                 Scopri di più <i class="bi bi-arrow-right"></i>
             </a>
         </div>
     </section>
     
     <!-- COMPETENZE CAROSELLO -->
-    <section id="skills">
+    <section id="skills" class="reveal">
         <h2 class="section-title">Competenze</h2>
         <div class="section-divider"></div>
         <div class="skills-carousel">
@@ -786,6 +131,14 @@
                     <i class="bi bi-person-check"></i>
                     <span>UX/UI</span>
                 </div>
+                <div class="skill-item">
+                    <i class="bi bi-vector-pen"></i>
+                    <span>Figma</span>
+                </div>
+                <div class="skill-item">
+                    <i class="bi bi-brush"></i>
+                    <span>Adobe</span>
+                </div>
                 <!-- Duplicati per loop infinito -->
                 <div class="skill-item">
                     <i class="bi bi-filetype-html"></i>
@@ -811,49 +164,62 @@
                     <i class="bi bi-person-check"></i>
                     <span>UX/UI</span>
                 </div>
+                <div class="skill-item">
+                    <i class="bi bi-vector-pen"></i>
+                    <span>Figma</span>
+                </div>
+                <div class="skill-item">
+                    <i class="bi bi-brush"></i>
+                    <span>Adobe</span>
+                </div>
             </div>
         </div>
     </section>
     
-    <!-- PROGETTI - 4 CARD IN CAROSELLO -->
-    <section id="projects">
+    <!-- PROGETTI -->
+    <section id="projects" class="reveal">
         <h2 class="section-title">I Miei Progetti</h2>
         <div class="section-divider"></div>
-        <div class="projects-grid">
+        <div class="projects-grid reveal-stagger">
             <!-- Card 1 -->
-            <div class="project-card">
+            <a href="progetti.html" class="project-card" data-testid="project-accessibility">
                 <span class="category">Accessibilità</span>
                 <h3>Accessibilità</h3>
                 <p>Design inclusivo per esperienze accessibili a tutti gli utenti.</p>
-            </div>
+            </a>
             <!-- Card 2 -->
-            <div class="project-card">
+            <a href="progetti.html" class="project-card" data-testid="project-discovery">
                 <span class="category">Discovery</span>
                 <h3>Discovery</h3>
                 <p>Ricerca e analisi per comprendere le esigenze degli utenti.</p>
-            </div>
+            </a>
             <!-- Card 3 -->
-            <div class="project-card">
+            <a href="progetti.html" class="project-card" data-testid="project-grafica">
                 <span class="category">Grafica</span>
                 <h3>Grafica</h3>
                 <p>Design grafico e identità visiva per brand memorabili.</p>
-            </div>
+            </a>
             <!-- Card 4 -->
-            <div class="project-card">
+            <a href="progetti.html" class="project-card" data-testid="project-copywrite">
                 <span class="category">Copywrite</span>
                 <h3>Copywrite</h3>
                 <p>Copywriting e strategia di comunicazione per brand efficaci.</p>
-            </div>
+            </a>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="progetti.html" class="btn-scopri" data-testid="all-projects-link">
+                Vedi tutti i progetti <i class="bi bi-arrow-right"></i>
+            </a>
         </div>
     </section>
     
     <!-- FAQ -->
-    <section id="faq">
+    <section id="faq" class="reveal">
         <h2 class="section-title">Domande Frequenti</h2>
         <div class="section-divider"></div>
         <div class="faq-container">
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" data-testid="faq-1">
                     <h4>Quali servizi offri?</h4>
                     <i class="bi bi-chevron-down"></i>
                 </div>
@@ -862,7 +228,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" data-testid="faq-2">
                     <h4>Come posso contattarti per un progetto?</h4>
                     <i class="bi bi-chevron-down"></i>
                 </div>
@@ -871,7 +237,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" data-testid="faq-3">
                     <h4>Qual è il tuo processo di lavoro?</h4>
                     <i class="bi bi-chevron-down"></i>
                 </div>
@@ -880,7 +246,7 @@
                 </div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">
+                <div class="faq-question" data-testid="faq-4">
                     <h4>Lavori con aziende o privati?</h4>
                     <i class="bi bi-chevron-down"></i>
                 </div>
@@ -914,10 +280,10 @@
                 <p>martina.caputo@email.com</p>
                 <p>Italia</p>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/martina-caputo-44a073233" target="_blank" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/martina-caputo-44a073233" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="bi bi-linkedin"></i>
                     </a>
-                    <a href="https://github.com/martinacaputo93-design/CMC" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/martinacaputo93-design/CMC" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <i class="bi bi-github"></i>
                     </a>
                 </div>
@@ -933,47 +299,7 @@
         </div>
     </footer>
     
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Hamburger Menu
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
-        
-        hamburgerBtn.addEventListener('click', function() {
-            hamburgerBtn.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-        });
-        
-        menuOverlay.addEventListener('click', function() {
-            hamburgerBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            menuOverlay.classList.remove('active');
-        });
-        
-        // FAQ Toggle
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', function() {
-                const item = this.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-        
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-        
-
-    </script>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
