@@ -1,7 +1,7 @@
-/* ========================================
+/*
    CMC Portfolio - Enhanced Styles
    Perfezionato per esame
-   ======================================== */
+*/
 
 /* CSS Variables - Theme Colors */
 :root {
@@ -97,9 +97,9 @@ body {
     background: var(--color-primary-hover);
 }
 
-/* ========================================
+/*
    Typography
-   ======================================== */
+*/
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Cinzel', serif;
@@ -116,9 +116,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* ========================================
+/*
    Header & Navigation
-   ======================================== */
+*/
 
 header {
     position: fixed;
@@ -264,9 +264,9 @@ header.scrolled {
     visibility: visible;
 }
 
-/* ========================================
+/*
    Hero Section
-   ======================================== */
+*/
 
 .hero {
     min-height: 100vh;
@@ -491,9 +491,9 @@ header.scrolled {
     font-size: 1.3rem;
 }
 
-/* ========================================
+/*
    Sections
-   ======================================== */
+*/
 
 section {
     padding: var(--spacing-2xl) var(--spacing-lg);
@@ -570,9 +570,9 @@ section {
     transition: transform 0.3s ease;
 }
 
-/* ========================================
+/*
    Skills Carousel
-   ======================================== */
+*/
 
 .skills-carousel {
     overflow: hidden;
@@ -640,9 +640,9 @@ section {
     letter-spacing: 1px;
 }
 
-/* ========================================
+/*
    Projects Grid
-   ======================================== */
+*/
 
 .projects-grid {
     display: grid;
@@ -734,9 +734,9 @@ section {
     line-height: 1.5;
 }
 
-/* ========================================
+/*
    FAQ Section
-   ======================================== */
+*/
 
 .faq-container {
     max-width: 800px;
@@ -808,9 +808,9 @@ section {
     line-height: 1.8;
 }
 
-/* ========================================
+/*
    Footer
-   ======================================== */
+*/
 
 footer {
     background: #050505;
@@ -915,9 +915,9 @@ footer {
     color: var(--color-primary);
 }
 
-/* ========================================
+/*
    Scroll Reveal Animations
-   ======================================== */
+*/
 
 .reveal {
     opacity: 0;
@@ -971,9 +971,9 @@ footer {
     transform: translateY(0);
 }
 
-/* ========================================
+/*
    Page Transition
-   ======================================== */
+*/
 
 .page-transition {
     position: fixed;
@@ -988,9 +988,9 @@ footer {
     transform: translateY(0);
 }
 
-/* ========================================
+/*
    Loading Animation
-   ======================================== */
+*/
 
 .loader {
     position: fixed;
@@ -1024,9 +1024,9 @@ footer {
     }
 }
 
-/* ========================================
+/*
    Responsive Design
-   ======================================== */
+*/
 
 @media (max-width: 992px) {
     .footer-content {
@@ -1111,9 +1111,9 @@ footer {
     }
 }
 
-/* ========================================
+/*
    Utility Classes
-   ======================================== */
+*/
 
 .text-primary { color: var(--color-primary) !important; }
 .bg-primary { background-color: var(--color-primary) !important; }
@@ -1146,9 +1146,9 @@ footer {
 /* Force gold on Bootstrap Icons */
 .bi { color: var(--color-primary) !important; }
 
-/* ========================================
+/*
    Cookie Banner
-   ======================================== */
+*/
 
 .cookie-banner {
     position: fixed;
